@@ -39,7 +39,7 @@ def all_contact(contacts):
     return contact_list.rstrip()
 
 @input_error
-def phone(contacts, name):
+def phone(contacts, args):
     name = args[0]
     if name in contacts:
         return f"{name}'s phone: {contacts[name]}"
