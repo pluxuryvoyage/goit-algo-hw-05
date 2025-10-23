@@ -1,8 +1,3 @@
-def parse_input(user_input):
-    cmd, *args = user_input.split()
-    cmd = cmd.strip().lower()
-    return cmd, *args
-
 def input_error(func):
     def inner(*args, **kwargs):
         try:
@@ -14,6 +9,12 @@ def input_error(func):
         except IndexError:
             return "Please provide both name and phone number."
     return inner
+
+@input_error 
+def parse_input(user_input):
+    cmd, *args = user_input.split()
+    cmd = cmd.strip().lower()
+    return cmd, *args
             
 @input_error
 def add_contact(args, contacts):
